@@ -6,7 +6,7 @@ on run
 		set todayDate's seconds to 0
 
 		tell default document
-			set todayTasks to (flattened tasks where (defer date < todayDate))
+			set todayTasks to (flattened tasks where ((defer date < todayDate) and (completed is false)))
 			repeat with t in todayTasks
 				set t's defer date to todayDate
 			end repeat
